@@ -55,13 +55,18 @@ const footerLinks = [
 </footer>
 
 <style>
-  .footer {
-    position: relative;
-    z-index: 1;
-    padding: 64px 0 40px;
-    border-top: 1px solid var(--border);
-    background: linear-gradient(180deg, transparent, rgba(14, 21, 30, 0.5));
-  }
+.footer {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(14, 21, 30, 0.65) 0%,
+      rgba(14, 21, 30, 0.35) 100%
+    );
+
+  backdrop-filter: blur(12px);
+
+  border-top: 1px solid var(--border);
+}
 
   .footer-top {
     display: flex;
