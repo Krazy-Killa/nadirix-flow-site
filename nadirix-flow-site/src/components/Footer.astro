@@ -1,0 +1,171 @@
+---
+const footerLinks = [
+  { label: 'Documentation', href: 'https://docs.nadirix-flow.cc' },
+  { label: 'GitHub', href: 'https://github.com/Krazy-Killa/Nadirix-Flow' },
+  { label: 'Roadmap', href: 'https://docs.nadirix-flow.cc' },
+  { label: 'Architecture', href: 'https://docs.nadirix-flow.cc' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+            <path d="M16 44 L32 18 L48 44" stroke="#42f5c5" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="30" r="3.5" fill="#42f5c5"/>
+          </svg>
+          <div class="footer-name">
+            <span class="footer-title">Nadirix Flow</span>
+            <span class="footer-tagline">Intelligence in Motion</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Local-first household AI and operations platform.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-links-label">Resources</div>
+        <div class="footer-links-list">
+          {footerLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noopener">{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-divider"></div>
+      <div class="footer-meta">
+        <span class="footer-copy">Nadirix Flow Project</span>
+        <span class="footer-sep">·</span>
+        <span class="footer-status">
+          <span class="status-pulse"></span>
+          Under Active Development
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    z-index: 1;
+    padding: 64px 0 40px;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, transparent, rgba(14, 21, 30, 0.5));
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .footer-name {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 320px;
+  }
+
+  .footer-links-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links-list a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links-list a:hover {
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  .footer-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0 24px;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+  }
+
+  .footer-sep {
+    opacity: 0.3;
+  }
+
+  .footer-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  @media (max-width: 640px) {
+    .footer-top {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+</style>

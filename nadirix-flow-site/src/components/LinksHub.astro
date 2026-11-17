@@ -1,0 +1,154 @@
+---
+const links = [
+  {
+    label: 'Documentation',
+    desc: 'Full guides, API reference, and configuration docs.',
+    href: 'https://docs.nadirix-flow.cc',
+    icon: 'book',
+  },
+  {
+    label: 'GitHub Repository',
+    desc: 'Source code, issues, and project history.',
+    href: 'https://github.com/Krazy-Killa/Nadirix-Flow',
+    icon: 'code',
+  },
+  {
+    label: 'Roadmap',
+    desc: 'Where the project is headed and what's planned next.',
+    href: 'https://docs.nadirix-flow.cc',
+    icon: 'map',
+  },
+  {
+    label: 'Architecture',
+    desc: 'System design, components, and infrastructure overview.',
+    href: 'https://docs.nadirix-flow.cc',
+    icon: 'layers',
+  },
+  {
+    label: 'Deployment',
+    desc: 'Setup and deployment instructions for your environment.',
+    href: 'https://docs.nadirix-flow.cc',
+    icon: 'server',
+  },
+  {
+    label: 'GitHub Issues',
+    desc: 'Report bugs, request features, or track progress.',
+    href: 'https://github.com/Krazy-Killa/Nadirix-Flow/issues',
+    icon: 'flag',
+  },
+];
+
+const icons: Record<string, string> = {
+  book: 'M4 4h12a2 2 0 012 2v14l-4-2-4 2-4-2-4 2V6a2 2 0 012-2z M8 8h8M8 12h8',
+  code: 'M8 6l-5 6 5 6M16 6l5 6-5 6',
+  map: 'M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14',
+  layers: 'M12 2l10 6-10 6L2 8l10-6zM2 14l10 6 10-6M2 18l10 6 10-6',
+  server: 'M5 4h14v6H5zM5 14h14v6H5zM8 7h.01M8 17h.01',
+  flag: 'M4 22V4M4 4h12l-2 4 2 4H4',
+};
+---
+
+<section id="links" class="links-hub">
+  <div class="container">
+    <div class="section-label">Resources</div>
+    <h2 class="section-title">Links Hub</h2>
+    <p class="section-subtitle">
+      Everything you need — documentation, source code, roadmap, and community. All in one place.
+    </p>
+
+    <div class="links-grid">
+      {links.map((link) => (
+        <a href={link.href} class="link-card glass" target="_blank" rel="noopener">
+          <div class="link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d={icons[link.icon]} />
+            </svg>
+          </div>
+          <div class="link-content">
+            <h3 class="link-title">{link.label}</h3>
+            <p class="link-desc">{link.desc}</p>
+          </div>
+          <div class="link-arrow">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+              <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 24px;
+    text-decoration: none;
+  }
+
+  .link-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--accent-dim);
+    border: 1px solid var(--border-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .link-content {
+    flex: 1;
+  }
+
+  .link-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .link-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .link-arrow {
+    color: var(--text-secondary);
+    opacity: 0.4;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .link-card:hover .link-arrow {
+    color: var(--accent);
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+  .link-card:hover {
+    text-decoration: none;
+  }
+
+  .link-card:hover .link-title {
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .links-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+const links = [
+  { label: 'Features', href: '#features' },
+  { label: 'Roadmap', href: '#journey' },
+  { label: 'Quick Start', href: '#quickstart' },
+  { label: 'Links', href: '#links' },
+];
+---
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+        <path d="M16 44 L32 18 L48 44" stroke="#42f5c5" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="32" cy="30" r="3.5" fill="#42f5c5"/>
+      </svg>
+      <span>Nadirix Flow</span>
+    </a>
+    <div class="nav-links">
+      {links.map(link => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </div>
+    <a href="https://github.com/Krazy-Killa/Nadirix-Flow" class="nav-cta" target="_blank" rel="noopener">
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(8, 12, 18, 0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  .nav-logo:hover {
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  .nav-cta {
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-hover);
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>

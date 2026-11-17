@@ -1,0 +1,153 @@
+---
+const categories = [
+  {
+    status: 'Available Today',
+    statusClass: 'available',
+    items: [
+      'AI Chat',
+      'Research',
+      'Diagnostics',
+      'System Monitoring',
+      'Discord Integration',
+      'Deployment Framework',
+    ],
+  },
+  {
+    status: 'Partially Validated',
+    statusClass: 'partial',
+    items: [
+      'Linux Deployment',
+      'Nested Proxmox Lab',
+      'Update Verification Workflow',
+    ],
+  },
+  {
+    status: 'Planned',
+    statusClass: 'planned',
+    items: [
+      'Maintenance AI',
+      'Voice Interface',
+      'Context Inference Layer',
+      'Household AI / Maintenance AI Delegation',
+    ],
+  },
+];
+---
+
+<section id="journey" class="journey">
+  <div class="container">
+    <div class="section-label">Transparency</div>
+    <h2 class="section-title">Development Journey</h2>
+    <p class="section-subtitle">
+      Nadirix Flow is an actively developed, transparency-focused project. Here's an honest look
+      at where things stand today — what works, what's being validated, and what's on the roadmap.
+    </p>
+
+    <div class="journey-grid">
+      {categories.map((cat) => (
+        <div class={`journey-card glass ${cat.statusClass}`}>
+          <div class="journey-status">
+            <span class={`status-dot ${cat.statusClass}`}></span>
+            {cat.status}
+          </div>
+          <ul class="journey-items">
+            {cat.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <p class="journey-note">
+      This project is not production-ready enterprise software. It's a local-first platform built
+      with engineering honesty — presented as it is, not as it might one day be.
+    </p>
+  </div>
+</section>
+
+<style>
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .journey-card {
+    padding: 28px;
+  }
+
+  .journey-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-dot.available {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+  }
+
+  .status-dot.partial {
+    background: #f5d442;
+    box-shadow: 0 0 8px rgba(245, 212, 66, 0.3);
+  }
+
+  .status-dot.planned {
+    background: var(--text-secondary);
+  }
+
+  .journey-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .journey-items li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .journey-items li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  .journey-note {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .journey-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

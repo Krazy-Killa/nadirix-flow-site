@@ -1,0 +1,157 @@
+---
+const features = [
+  {
+    icon: 'cpu',
+    title: 'Local AI Platform',
+    desc: 'Local model inference, model management, and private conversations — all running on your own hardware.',
+    items: ['Local model inference', 'Model management', 'Private conversations'],
+  },
+  {
+    icon: 'dashboard',
+    title: 'Operations Dashboard',
+    desc: 'System telemetry, diagnostics, and incident tracking for full operational visibility into your environment.',
+    items: ['System telemetry', 'Diagnostics', 'Incident tracking', 'Operational visibility'],
+  },
+  {
+    icon: 'research',
+    title: 'Research & Knowledge',
+    desc: 'Web research integration, shared operational notes, and runbooks for evidence-driven workflows.',
+    items: ['Web research integration', 'Shared operational notes', 'Runbooks'],
+  },
+  {
+    icon: 'server',
+    title: 'Infrastructure Awareness',
+    desc: 'Proxmox inventory, read-only monitoring, and future network diagnostics for your homelab.',
+    items: ['Proxmox inventory', 'Read-only monitoring', 'Future network diagnostics'],
+  },
+  {
+    icon: 'shield',
+    title: 'Security First',
+    desc: 'Authentication, role-based access, and local ownership of data — your infrastructure stays yours.',
+    items: ['Authentication', 'Role-based access', 'Local ownership of data'],
+  },
+  {
+    icon: 'wrench',
+    title: 'Future Maintenance AI',
+    desc: 'A planned context-aware maintenance assistant with evidence-based diagnostics and a context inference framework.',
+    items: ['Context-aware maintenance assistant', 'Evidence-based diagnostics', 'Planned context inference framework'],
+  },
+];
+
+const icons: Record<string, string> = {
+  cpu: 'M8 2v3M8 19v3M2 8h3M19 8h3M5 5h14v14H5z M9 9h6v6H9z',
+  dashboard: 'M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z',
+  research: 'M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-5-5',
+  server: 'M5 4h14v6H5zM5 14h14v6H5zM8 7h.01M8 17h.01',
+  shield: 'M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z',
+  wrench: 'M14 7a4 4 0 11-5 5l-6 6 3 3 6-6a4 4 0 015-5z',
+};
+---
+
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">What Nadirix Flow Does</h2>
+    <p class="section-subtitle">
+      A thoughtfully engineered local AI and operations platform built for real-world household
+      and HomeLab environments — not overhyped enterprise marketing.
+    </p>
+
+    <div class="feature-grid">
+      {features.map((feature) => (
+        <div class="feature-card glass">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d={icons[feature.icon]} />
+            </svg>
+          </div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-desc">{feature.desc}</p>
+          <ul class="feature-items">
+            {feature.items.map((item) => (
+              <li>
+                <span class="check">▸</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-dim);
+    border: 1px solid var(--border-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .feature-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .feature-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .feature-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .feature-items li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+  }
+
+  .check {
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 1024px) {
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

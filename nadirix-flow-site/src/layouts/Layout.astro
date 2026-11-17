@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Nadirix Flow — Intelligence in Motion',
+  description = 'A local-first household AI and operations platform combining intelligent assistance, infrastructure awareness, diagnostics, research, and future Maintenance AI capabilities.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#080c12" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nadirix Flow" />
+    <meta property="og:description" content="Intelligence in Motion — A local-first household AI and operations platform." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nadirix-flow.cc" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
