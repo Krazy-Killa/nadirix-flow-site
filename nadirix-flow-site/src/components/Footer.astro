@@ -38,6 +38,10 @@ const footerLinks = [
 
     <div class="footer-bottom">
       <div class="footer-divider"></div>
+      <div class="footer-legal">
+        <p>© 2026 Nadirix Flow</p>
+        <p>Nadirix Flow and associated branding are project identifiers.</p>
+      </div>
       <div class="footer-meta">
         <span class="footer-copy">Nadirix Flow Project</span>
         <span class="footer-sep">·</span>
@@ -136,6 +140,19 @@ const footerLinks = [
     font-size: 0.82rem;
     color: var(--text-secondary);
     font-family: var(--font-mono);
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+
+  .footer-legal p {
+    margin: 0;
   }
 
   .footer-sep {
