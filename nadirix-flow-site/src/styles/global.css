@@ -59,15 +59,23 @@ body::before {
 body::after {
   content: '';
   position: fixed;
-  top: -300px;
+  top: -500px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 600px;
-  background: radial-gradient(ellipse at center, var(--accent-glow), transparent 70%);
+
+  width: 1800px;
+  height: 1400px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(66,245,197,0.12) 0%,
+      rgba(66,245,197,0.06) 35%,
+      transparent 75%
+    );
+
   pointer-events: none;
   z-index: 0;
-  opacity: 0.5;
 }
 
 main {
